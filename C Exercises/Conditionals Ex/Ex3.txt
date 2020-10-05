@@ -1,0 +1,37 @@
+int day;
+int month;
+int year;
+int nextday;
+int nextmonth;
+int nextyear;
+
+main(){
+	scanf("%d", &day);
+	scanf("%d", &month);
+	scanf("%d", &year);
+	nextyear = year;
+	nextmonth = month;
+	nextday = day;
+	if(month == 1 and day == 31 or month == 3 and day == 31 or month == 5 and day == 31 or month == 7 and day == 31 or month == 8 and day == 31 or month == 10 and day == 31){
+		nextmonth = month +1;
+		nextday = 1;
+	}
+	else if(month == 4 and day == 30 or month == 6 and day == 30 or month == 9 and day == 30 or month == 11 and day == 30){
+		nextmonth = month +1;
+		nextday = 1;
+	}
+	else if(month == 2 and day == 29){
+		nextmonth = month +1;
+		nextday = 1;
+	}
+	else if(month == 12 and day == 31){
+		nextmonth = 1;
+		nextday = 1;
+		next year = year + 1;
+	}
+	else{
+		nextday = day + 1;
+	}
+	
+	printf("Date following %d : %d : %d is %d : %d : %d \n", day, month, year, nextday, nextmonth, nextyear);
+}

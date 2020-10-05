@@ -1,0 +1,27 @@
+int hours;
+int rate;
+int payment(int pHours, int pRate){
+	int sum = 0;
+	if(pHours-40 <= 0){
+		sum =  pRate * pHours;
+	}
+	else if(pHours > 40 and pHours <= 60){
+		sum = pRate * pHours;
+		sum += pRate * ((pHours%40) * 1.5));
+	}
+	else{
+		sum = pRate * pHours;
+		sum += pRate * ((pHours%40) * 1.5));
+		sum += pRate * ((pHours%60)* 2));
+	}
+	
+	return sum;
+}
+
+main(){
+	while(rate>0){
+		int pay = payment(hours, rate);
+		printf("Pay at %d pence/hr for %d hours is %d pounds \n", rate, hours, pay);
+		
+	}
+}

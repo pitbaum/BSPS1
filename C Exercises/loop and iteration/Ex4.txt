@@ -1,0 +1,17 @@
+ /* Ex3 was skipped, since the idea is the same as the one in conditional Ex1*/
+int capital;
+float rate;
+int years;
+main(){
+	printf("Enter a start capital: ");
+	scanf("%d", &capital);
+	printf("Enter a rate in percent: ");
+	scanf("%f", &rate);
+	printf("Enter a number of years: ");
+	scanf("%d", &years);
+	for(int x = 0; x<years; x++){
+		float interest = capitalsum * rate/100;
+		float capitalsum += interest;
+		printf("year: %d  interest: %2f  Sum: %2f", years, interest, capitalsum);
+	}
+}

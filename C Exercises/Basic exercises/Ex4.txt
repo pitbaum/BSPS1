@@ -1,0 +1,7 @@
+float temperatureC;
+float main(){
+	scanf("/d", &temperatureC);
+	float temperaturF = temperatureC *9/5 +32;
+	printf("the temperature in C is /f \n", temperatureC);
+	printf("the temperature in F is /f \n", temperatureF);
+}

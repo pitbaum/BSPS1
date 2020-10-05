@@ -1,0 +1,46 @@
+/* i did it only with 10 instead of 25 lenght count*/
+
+char text[1000];
+int length = 0;
+int x1=0;
+int x2=0;
+int x3=0;
+int x4=0;
+int x5=0;
+int x6=0;
+int x7=0;
+int x8=0;
+int x9=0;
+int x10=0;
+main(){
+	scanf("%s", text);
+	while( text = getchar(), text >= 0 ){
+		if(text == ' '){
+			if(length == 1){ x1++;}
+			else if(lenght == 2){x2++;}
+			else if(lenght == 3){x3++;}
+			else if(lenght == 4){x4++;}
+			else if(lenght == 5){x5++;}
+			else if(lenght == 6){x6++;}
+			else if(lenght == 7){x7++;}
+			else if(lenght == 8){x8++;}
+			else if(lenght == 9){x9++;}
+			else if(lenght == 10){x10++;}
+		
+		}
+		else{
+			lenght++;
+		}
+	}
+	printf("length 1 : %d occurences \n", x1);
+	printf("length 2 : %d occurences \n", x2);
+	printf("length 3 : %d occurences \n", x3);
+	printf("length 4 : %d occurences \n", x4);
+	printf("length 5 : %d occurences \n", x5);
+	printf("length 6 : %d occurences \n", x6);
+	printf("length 7 : %d occurences \n", x7);
+	printf("length 8 : %d occurences \n", x8);
+	printf("length 9 : %d occurences \n", x9);
+	printf("length 10 : %d occurences \n", x10);
+	
+}

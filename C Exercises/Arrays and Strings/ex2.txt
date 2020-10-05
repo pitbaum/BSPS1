@@ -1,0 +1,15 @@
+char main(){
+	char ch;
+	int index=0;
+	char list[];
+        while( scanf( "%c", &ch ) == 1 ){
+			list[index] = ch;
+			index++;
+		}
+	char reverselist[index];
+	for(int x=0; x<=index;x++){
+		y = index - x;
+		char toprint = list[y];
+		printf("%c", toprint);
+	}	
+}

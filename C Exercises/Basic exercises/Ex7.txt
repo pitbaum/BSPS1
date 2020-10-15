@@ -1,9 +1,0 @@
-#include <math.h>
-float radius;
-
-float main(){
-		printf("enter a positive float number :");
-		scanf("%f", &radius);
-		float area = (3.14159* pow(radius,2));
-		printf("The area of a circle of radius %f units is %f units. \n", radius, area);
-}

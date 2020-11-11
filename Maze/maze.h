@@ -18,16 +18,20 @@ void getMatrix(field *maze, int c, int size);	// size is the index of the last f
 
 int seeker(field *maze, int r, int c);
 
-field* seekerEntrance(field *maze, int size);
+field* seekerEntrance(field *pMaze, int size);
 
-void findLowest(int up, int down, int left, int right, int pMin, int destination);
+int findLowest(int up, int down, int left, int right, int pMin);
 
-void moveToLowest(field *pCurrent, field *pOld, int destination, int c);
+int moveToChoice(field *pCurrent, field *pOld, int c, int choice);
 
 int getMax(int x, int y);
 
 int getMin(int x, int y);
 
-void getMarks(field *maze, int c, int size, int solution);
+int isWalkable(int direction);
 
-void saveMaze(field *maze);
+void getSolution(field *maze, int c, int size, int solution);
+
+int move(int up, int down, int left, int right, int pMin, field *pCurrent, field *pOld, int c);
+
+int moveBackwards(int lastchoice,  field *pCurrent, field *pOld, int c);

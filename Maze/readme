@@ -1,4 +1,1 @@
-the file Maze.c is a standalone older version, in which only the matrix of the maze was initialized,
-
 the files maze.c maze.h main.c are to be compiled together and they include the matrix creation of the maze and the algorithm to find a solution.
-(Please not that they are not fully working at the momement.)

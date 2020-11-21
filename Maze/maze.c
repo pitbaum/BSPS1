@@ -77,7 +77,7 @@ void fillMaze(field *maze , int r, int c)
     scanf("%u", &w);
 
     // check if there is enough free space for an exit plus the requested amount of walls.
-    while(((r * c) - 1) < w)
+    while((((r-2) * (c-2)) - 1) < w)
     {
         printf("there are not enough free spaces for so many walls. Maximum free spaces: %d , please enter a new amount of walls: ", (r * c - 2));
         scanf("%u", &w);
@@ -206,4 +206,92 @@ void solutionMapper(field *yourMaze, field *pEntrance, int r, int c, int *path, 
             pCurrent += path[i];
             pCurrent->state = 'W';
         }
+}
+
+//safes the maze into a txt file.
+void safeMaze(field *maze, int r, int c)
+{
+    //open file in append mode or create file.
+    FILE *fPtr = fopen("savesFile.txt", "a");
+
+    //proove if the file could be opened.
+    if(fPtr == NULL)
+    {
+        // File not creatable
+        printf("Unable to create file and safe the maze.\n");
+        exit(1);
+    }
+
+    //iterate through the maze array and print it into the file.
+    int j = 1;
+    while(j <= (r*c))
+    {
+        //char currentChar = maze[j-1].state;
+        fputc(maze[j-1].state, fPtr);
+        if(j%c == 0)
+            fprintf(fPtr, "\n");
+        j++;
+    }
+    fprintf(fPtr, "|");
+    fprintf(fPtr, "\n");
+    //close File.
+    fclose(fPtr);
+}
+
+//prints out a requested maze from a txt file.
+void loadMaze(int request)
+{
+    int c;
+    char l = '|';
+    FILE *fPtr = fopen("savesFile.txt", "r");
+
+    if ((fPtr = fopen("savesFile.txt", "r")) == NULL)
+    {
+        printf("Error! opening file");
+        // Program exits if file pointer returns NULL.
+        exit(1);
+    }
+
+    //prints out the requested maze from the file.
+    int nameFlag = 0;
+    while(nameFlag < request)
+    {  
+        c = fgetc(fPtr);
+        if(nameFlag < (request - 1))
+        {
+            if(c == l)
+                nameFlag++;           
+        }
+        else
+        {
+            if(c == l)
+                nameFlag++;
+            else
+                printf("%c", c);
+        }
+    }
+
+    //close the file.
+    fclose(fPtr);
+}
+
+//calculates the loadable mazes and returns an amount. 
+int getSafedIndex()
+{
+    int c;
+    char l = '|';
+    int nameFlag;
+
+    //read from file, how many mazes were saved.
+    FILE *fPtr = fopen("savesFile.txt", "r");
+        while(0 == 0)
+    {  
+        c = fgetc(fPtr);
+        if(c == l)
+            nameFlag++;
+        if( feof(fPtr) )
+            break;
+    }
+    return nameFlag;
+    fclose(fPtr);
 }

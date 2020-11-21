@@ -12,7 +12,8 @@ void main()
         scanf("%u", &r);
     } while(r <= 1);
 
-    do{
+    do
+    {
         printf("Enter a new positive number of columns for the maze: ");
         scanf("%u", &c);
     } while(c <= 1);
@@ -55,4 +56,40 @@ void main()
         printf("There was no way to the exit found.\n");
     pEntrance->state = 'E';
     getMatrix(yourMaze, c, (r * c));
+    
+    //Ask the user if they want to save the current maze.
+    printf("Do you want to save the current maze and its solution? Y/N : ");
+    char request = 't';
+    while(request != 'Y' && request != 'y' && request != 'N' && request != 'n')
+        scanf("%c", &request);
+    //save the matrix in a file.
+    if (request == 'Y' || request == 'y')
+    {
+        safeMaze(yourMaze, r, c);
+        printf("the maze was successfully safed.");
+    }
+
+    //Ask the user if they want to load a maze.
+    printf("Do you want to load a maze? Y/N : ");
+    do
+    {
+        scanf("%c", &request);
+    } while (request != 'Y' && request != 'y' && request != 'N' && request != 'n');
+    if (request == 'Y' || request == 'y')
+    {
+        //calculate how many safed mazes are in the file.
+        int safedIndex = getSafedIndex();
+        printf("there are %d mazes saved, which one do you want to load? Enter an index number between 0 < x < %d : ", safedIndex, (safedIndex + 1));
+        r = -1;
+        while(r <= 0 || r > safedIndex)
+        {
+            scanf("%d", &r);
+        }
+        //print selected maze.
+        printf("maze from save index %d:\n ", r);
+        loadMaze(r);
+    }
+    //Stop the terminal from closing and notify the user.
+    printf("End of program.");
+    system("pause");
 }

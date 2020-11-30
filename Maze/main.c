@@ -66,7 +66,7 @@ void main()
     if (request == 'Y' || request == 'y')
     {
         safeMaze(yourMaze, r, c);
-        printf("the maze was successfully safed.");
+        printf("the maze was successfully saved.");
     }
 
     //Ask the user if they want to load a maze.

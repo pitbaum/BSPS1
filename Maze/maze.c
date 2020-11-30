@@ -79,7 +79,7 @@ void fillMaze(field *maze , int r, int c)
     // check if there is enough free space for an exit plus the requested amount of walls.
     while((((r-2) * (c-2)) - 1) < w)
     {
-        printf("there are not enough free spaces for so many walls. Maximum free spaces: %d , please enter a new amount of walls: ", (r * c - 2));
+        printf("there are not enough free spaces for so many walls. Maximum free spaces: %d , please enter a new amount of walls: ", ((r-2) * (c-2)) - 1);
         scanf("%u", &w);
     }
 
